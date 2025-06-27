@@ -1,8 +1,27 @@
 {
-  "rewrites": [
+  "version": 2,
+  "builds": [
     {
-     "source": "/(.*)",
-      "destination": "/"
+      "src": "server.js",
+      "use": "@vercel/node"
     }
-  ]
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "server.js"
+    },
+    {
+      "src": "/health",
+      "dest": "server.js"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/404.html",
+      "status": 404
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  }
 }
