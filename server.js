@@ -15,6 +15,10 @@ app.use('/api/', hiRouter);
 app.use('/api/', seoRouter);
 app.use('/api/', whoisRouter);
 
+app.get('/', (req, res) => {
+    res.send("Demitools Api Started!");
+})
+
 // Health Check
 app.get('/health', (req, res) => {
   res.status(200).json({ status: 'healthy' });
