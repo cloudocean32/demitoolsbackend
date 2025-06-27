@@ -1,37 +1,52 @@
 {
   "version": 2,
-  {
-    "functions": {
-      "index.js": {
-        "memory": 1024,
-        "maxDuration": 10
-      }
-    }
-  },
   "builds": [
     {
       "src": "index.js",
       "use": "@vercel/node",
       "config": {
-        "includeFiles": ["api/**", "config/**"]
+        "includeFiles": [
+          "api/**/*.js",
+          "config/*.json"
+        ]
       }
     }
   ],
+  "functions": {
+    "index.js": {
+      "memory": 1024,
+      "maxDuration": 15,
+      "runtime": "nodejs18.x"
+    }
+  },
   "routes": [
     {
-      "src": "/api/(.*)",
+      "src": "/api/seo/check",
+      "dest": "index.js",
+      "methods": ["POST"]
+    },
+    {
+      "src": "/api/whois/check",
       "dest": "index.js",
       "methods": ["POST"]
     },
     {
       "src": "/health",
       "dest": "index.js",
-      "methods": ["GET"]
+      "methods": ["GET"],
+      "headers": {
+        "Cache-Control": "no-cache"
+      }
     },
     {
       "src": "/",
       "dest": "index.js",
       "methods": ["GET"]
+    },
+    {
+      "src": "/(.*)",
+      "status": 404,
+      "dest": "index.js"
     }
   ]
 }
