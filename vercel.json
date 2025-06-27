@@ -12,13 +12,6 @@
       }
     }
   ],
-  "functions": {
-    "index.js": {
-      "memory": 1024,
-      "maxDuration": 15,
-      "runtime": "nodejs18.x"
-    }
-  },
   "routes": [
     {
       "src": "/api/seo/check",
