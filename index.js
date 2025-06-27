@@ -30,13 +30,10 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: 'Internal Server Error' });
 });
 
-// Start Server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-  console.log(`
-  Server running on port ${PORT}
-  Available endpoints:
-  - POST /api/
-  - POST /api/
-  `);
+// Start server
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+}).on('error', (err) => {
+  console.error('🚨 Server Error:', err);
 });
