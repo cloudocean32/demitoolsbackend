@@ -8,7 +8,6 @@ app.use(express.json());
 // Import Routes
 const seoRouter = require('./api/routes/seo-routes');
 const whoisRouter = require('./api/routes/whois-routes');
-const hiRouter = require('./api/routes/hi-routes');
 
 // Use Routes
 app.use('/api/', hiRouter);
