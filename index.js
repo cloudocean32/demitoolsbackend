@@ -10,7 +10,6 @@ const seoRouter = require('./api/routes/seo-routes');
 const whoisRouter = require('./api/routes/whois-routes');
 
 // Use Routes
-app.use('/api/', hiRouter);
 app.use('/api/', seoRouter);
 app.use('/api/', whoisRouter);
 
