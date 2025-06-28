@@ -1,45 +1,10 @@
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "index.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "api/**/*.js",
-          "config/*.json"
-        ]
-      }
-    }
-  ],
-  "routes": [
-    {
-      "src": "/api/seo/check",
-      "dest": "index.js",
-      "methods": ["POST"]
-    },
-    {
-      "src": "/api/whois/check",
-      "dest": "index.js",
-      "methods": ["POST"]
-    },
-    {
-      "src": "/health",
-      "dest": "index.js",
-      "methods": ["GET"],
-      "headers": {
-        "Cache-Control": "no-cache"
-      }
-    },
-    {
-      "src": "/",
-      "dest": "index.js",
-      "methods": ["GET"]
-    },
-    {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "index.js"
-    }
-  ]
+{ 
+   "version": 2,
+   "name": "demitoolsbackend",
+   "builds": [
+      { "src": "index.js", "use": "@vercel/node" }
+   ],
+   "routes": [
+      { "src": "/(.*)", "dest": "/index.js" }
+   ]
 }
