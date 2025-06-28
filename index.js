@@ -9,18 +9,13 @@ app.use(express.json());
 const seoRouter = require('./api/routes/seo-routes');
 const whoisRouter = require('./api/routes/whois-routes');
 
-// Use Routes
-app.use('/api/', seoRouter);
-app.use('/api/', whoisRouter);
-
 app.get('/', (req, res) => {
     res.send("Demitools Api Started!");
 })
 
-// Health Check
-app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'healthy' });
-});
+// Use Routes
+app.use('/api', seoRouter);
+app.use('/api', whoisRouter);
 
 // Error Handling
 app.use((err, req, res, next) => {
