@@ -22,14 +22,9 @@ const checkDomainReputation = async (domainName) => {
     try {
         const response = await axios.post(url, data, config);
         console.log('RESPONSE >>>>', response);
-        // KONDISI IF DIPERBAIKI: Kita cek properti yang pasti ada di respons sukses, yaitu "blacklists".
         if (response.status === 200 && response.data && response.data.blacklists) {
-            
-            // RETURN DIPERBAIKI: Data yang kita mau ada langsung di response.data
             return response.data; 
-
         } else {
-            // Blok ini sekarang hanya akan berjalan jika ada error terstruktur dari APIVOID
             throw new Error(response.data.error || 'Respons tidak valid dari APIVOID');
         }
     } catch (error) {
