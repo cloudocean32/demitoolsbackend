@@ -1,4 +1,4 @@
-const apivoidService = require('../services/apivoidService');
+const apivoidService = require('../services/apivoid-service');
 
 const getReputation = async (req, res, next) => {
     const { domain } = req.body;
