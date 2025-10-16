@@ -2,10 +2,7 @@ const axios = require('axios');
 
 const checkDomainReputation = async (domainName) => {
     const apiKey = process.env.APIVOID_API_KEY;
-    if (!apiKey || apiKey.startsWith('GANTI_DENGAN')) {
-        throw new Error('APIVOID API Key belum diatur di file .env');
-    }
-
+ 
     const url = 'https://api.apivoid.com/v2/domain-reputation';
 
     const data = {
@@ -21,7 +18,7 @@ const checkDomainReputation = async (domainName) => {
 
     try {
         const response = await axios.post(url, data, config);
-
+        console.log('RESPONSE NYA!!', response);
         if (response.status === 200 && response.data && response.data.data) {
             return response.data.data.report;
         } else {
