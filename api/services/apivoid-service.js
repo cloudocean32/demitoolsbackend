@@ -1,5 +1,3 @@
-// GANTI INI:
-// const axios = require('axios');
 const axiosInstance = require('../utils/axios-instance');
 
 const checkDomainReputation = async (domainName) => {
@@ -16,15 +14,12 @@ const checkDomainReputation = async (domainName) => {
 
     const config = {
         headers: {
-            // User-Agent & Accept sudah otomatis ada dari instance
             'Content-Type': 'application/json',
             'X-API-Key': apiKey,
         }
     };
 
     try {
-        // GANTI INI:
-        // const response = await axios.post(url, data, config);
         const response = await axiosInstance.post(url, data, config);
 
         console.log('RESPONSE >>>>', response);
