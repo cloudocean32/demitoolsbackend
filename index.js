@@ -10,6 +10,7 @@ const seoRouter = require('./api/routes/seo-routes');
 const whoisRouter = require('./api/routes/whois-routes');
 const whoisHistoryRouter = require('./api/routes/whoxy-routes');
 const reputationRouter = require('./api/routes/reputation-routes');
+const configRouter = require('./api/routes/config-routes');
 
 app.get('/', (req, res) => {
     res.send("Demitools Api Started!");
@@ -19,6 +20,7 @@ app.use('/api', seoRouter);
 app.use('/api', whoisRouter);
 app.use('/api', whoisHistoryRouter);
 app.use('/api', reputationRouter);
+app.use('/api', configRouter);
 
 app.use((err, req, res, next) => {
   console.error(err.stack);
